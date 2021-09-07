@@ -2,7 +2,7 @@
   "name": "react-todo",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mansur30.github.io/react-todo/",
+  "homepage": "https://irzakhanov.github.io/react-todo/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -22,7 +22,7 @@
     "sass": "^1.32.8",
     "web-vitals": "^1.0.1"
   },
-  "proxy": "http://localhost:5000",
+  "proxy": "https://react-todo-server-my.herokuapp.com/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
