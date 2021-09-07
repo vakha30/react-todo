@@ -1,4 +1,6 @@
-# React todo
+#React todo
+
+## Приложение список задач с регистрацией и авторизацией
 
 ### Front - React/Redux, Back - Node/Express + MongoDB
 
