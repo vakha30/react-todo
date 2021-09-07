@@ -1,0 +1,38 @@
+.header {
+    background: linear-gradient(180deg, rgba(240,240,241,1) 0%, rgba(190,190,191,1) 100%);
+    border-bottom: 1px solid #939495;
+    padding: 7px 6px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-circles {
+    display: flex;
+    li {
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        margin-right: 5px;
+    }
+
+    &--red {
+        background: linear-gradient(180deg, rgba(195,16,14,1) 0%, rgba(255,255,255,1) 100%);
+        border: 1px solid #6e3d3c;
+    }
+
+    &--yellow {
+        background: linear-gradient(180deg, rgba(202,151,10,1) 0%, rgba(255,255,255,1) 100%);
+        border: 1px solid #80750b;
+    }
+    &--green {
+        background: linear-gradient(180deg, rgba(16,120,5,1) 0%, rgba(255,255,255,1) 100%);
+        border: 1px solid #28671e;
+    }
+}
+
+.header-auth {
+    &__btn {
+        margin-right: 20px;
+        color: rgb(70, 70, 70);
+    }
+}
