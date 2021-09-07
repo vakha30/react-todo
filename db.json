@@ -1,0 +1,70 @@
+{
+  "lists": [
+    {
+      "id": 0,
+      "title": "first list"
+    },
+    {
+      "id": 1,
+      "title": "Second list"
+    },
+    {
+      "title": "New yo yo",
+      "id": 2
+    },
+    {
+      "title": "dsaasd",
+      "id": 3
+    }
+  ],
+  "tasks": [
+    {
+      "id": 0,
+      "listId": 0,
+      "text": "My first taskfrom First list",
+      "completed": true
+    },
+    {
+      "id": 1,
+      "listId": 0,
+      "text": "My second taskfrom First list",
+      "completed": true
+    },
+    {
+      "id": 2,
+      "listId": 0,
+      "text": "My thirt taskfrom First list",
+      "completed": true
+    },
+    {
+      "id": 3,
+      "listId": 1,
+      "text": "My first task from Second list",
+      "completed": false
+    },
+    {
+      "id": 4,
+      "listId": 1,
+      "text": "My second task from Second list",
+      "completed": false
+    },
+    {
+      "id": 5,
+      "listId": 1,
+      "text": "My thirt task from Second list",
+      "completed": false
+    },
+    {
+      "listId": 2,
+      "text": "New task\n",
+      "completed": true,
+      "id": 6
+    },
+    {
+      "listId": 0,
+      "text": "ewq",
+      "completed": true,
+      "id": 7
+    }
+  ]
+}
