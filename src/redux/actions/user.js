@@ -15,7 +15,11 @@ export const register =
       alert(response.data.message);
       dispatch(loginAction({ email, password }));
     } catch (e) {
-      alert(e.message);
+      if (e.response.data.errors) {
+        alert(e.response.data.errors.errors[0].msg);
+      } else {
+        alert(e.response.data.message);
+      }
     }
   };
 
@@ -33,7 +37,7 @@ export const loginAction =
       localStorage.setItem("token", response.data.token);
       dispatch(setUser(response.data.user));
     } catch (e) {
-      alert(e.message);
+      alert(e.response.data.message);
     }
   };
 

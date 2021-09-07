@@ -15,7 +15,7 @@ function App() {
   useEffect(() => {
     dispatch(authAction());
     dispatch(fetchAllTasks());
-  }, [dispatch, activeList]);
+  }, [dispatch, activeList, isAuth]);
 
   return (
     <div className="wrapper">
