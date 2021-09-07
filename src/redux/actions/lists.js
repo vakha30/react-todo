@@ -4,7 +4,7 @@ export const fetchLists = () => (dispatch) => {
   const token = localStorage.getItem("token");
 
   axios
-    .get("/api/lists", {
+    .get("https://react-todo-server-my.herokuapp.com/api/lists", {
       headers: {
         Authorization: `Bearer ${token ? token : ""}`,
       },
@@ -30,7 +30,7 @@ export const setActiveList = (list) => {
 
 export const addList = (obj) => (dispatch) => {
   const token = localStorage.getItem("token");
-  fetch("/api/lists/add", {
+  fetch("https://react-todo-server-my.herokuapp.com/api/lists/add", {
     method: "POST",
     headers: {
       "Content-type": "application/json",
@@ -47,8 +47,10 @@ export const addList = (obj) => (dispatch) => {
 };
 
 export const deleteList = (id) => (dispatch) => {
-  axios.delete(`/api/lists/delete/${id}`).then((res) => {
-    dispatch(fetchLists());
-    dispatch(setActiveList(null));
-  });
+  axios
+    .delete(`https://react-todo-server-my.herokuapp.com/api/lists/delete/${id}`)
+    .then((res) => {
+      dispatch(fetchLists());
+      dispatch(setActiveList(null));
+    });
 };
