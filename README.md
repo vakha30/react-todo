@@ -1,6 +1,6 @@
 # React todo
 
-## Front - React/Redux, Back - Node/Express + MongoDB
+### Front - React/Redux, Back - Node/Express + MongoDB
 
 Сайт - https://irzakhanov.github.io/react-todo/
 Репозиторий сервера - https://github.com/irzakhanov/react-todo-server
