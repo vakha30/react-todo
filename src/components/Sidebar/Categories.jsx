@@ -1,19 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import Category from "./Category";
-
 import { useSelector } from "react-redux";
-import { deleteList, setActiveList } from "../../redux/actions/lists";
+import Category from "./Category.jsx";
+
+import {
+  deleteList,
+  selectActiveLists,
+  setActiveList,
+} from "../../redux/features/lists";
+import { selectTasks } from "../../redux/features/tasks";
 
 function Categories({ items, dispatch, openSettings }) {
-  const { activeList } = useSelector(({ lists }) => lists);
+  const activeList = useSelector(selectActiveLists);
 
-  const tasks = useSelector(({ tasks }) => tasks.items);
+  const taskItems = useSelector(selectTasks);
 
-  const onSelectList = (id) => {
+  function onSelectList(id) {
     dispatch(setActiveList(id));
-  };
+  }
 
   const onDeleteList = (id) => {
     dispatch(deleteList(id));
@@ -30,13 +35,17 @@ function Categories({ items, dispatch, openSettings }) {
         onSelectList={onSelectList}
         activeList={activeList}
         _id={null}
-        count={tasks.length}
+        count={taskItems.length}
       />
       {items &&
         items.map((item) => {
-          const filterItems = tasks.filter((task) => task.list === item._id);
+          const filterItems = taskItems.filter(
+            // eslint-disable-next-line no-underscore-dangle
+            (task) => task.list === item._id
+          );
           return (
             <Category
+              // eslint-disable-next-line no-underscore-dangle
               key={item._id}
               {...item}
               onSelectList={onSelectList}

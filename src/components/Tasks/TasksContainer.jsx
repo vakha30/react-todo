@@ -1,16 +1,17 @@
 import React from "react";
-
-import { TaskList } from "./";
-import Button from "../Button";
-import { Popup } from "../../components";
 import { useDispatch, useSelector } from "react-redux";
+import { TaskList } from ".";
+import Button from "../Button.jsx";
+import { Popup } from "..";
+
 import {
   addTask,
   setCompleted,
   deleteTask,
   editTask,
   removeAllTasks,
-} from "../../redux/actions/tasks";
+} from "../../redux/features/tasks";
+import { selectActiveLists } from "../../redux/features/lists";
 
 function TasksContainer() {
   const [isOpenModal, setOpenModal] = React.useState(false);
@@ -18,7 +19,7 @@ function TasksContainer() {
   const [oldTask, setOldTask] = React.useState({});
 
   const dispatch = useDispatch();
-  const { activeList } = useSelector(({ lists }) => lists);
+  const activeList = useSelector(selectActiveLists);
 
   const onOpenModal = () => {
     setOpenModal(true);
@@ -41,7 +42,7 @@ function TasksContainer() {
   const onSaveTask = (text) => {
     const newTask = {
       list: activeList,
-      text: text,
+      text,
       completed: false,
     };
     dispatch(addTask(newTask, activeList));
@@ -60,7 +61,7 @@ function TasksContainer() {
   const onSaveEditTask = (text) => {
     const obj = {
       id: oldTask.id,
-      text: text,
+      text,
     };
     dispatch(editTask(obj, activeList));
     setOpenModalEdit(false);
