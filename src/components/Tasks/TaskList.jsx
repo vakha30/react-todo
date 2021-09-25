@@ -1,11 +1,14 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import Task from "./Task";
-import TaskLoader from "./Task/TaskLoader";
+import { selectActiveLists } from "../../redux/features/lists";
+import { selectTasks, selectTasksLoading } from "../../redux/features/tasks";
+import Task from "./Task/index.jsx";
+import TaskLoader from "./Task/TaskLoader.jsx";
 
 function TaskList({ onToggleChecked, onDeleteTask, onEditTask }) {
-  const { items, isLoaded } = useSelector(({ tasks }) => tasks);
-  const { activeList } = useSelector(({ lists }) => lists);
+  const items = useSelector(selectTasks);
+  const loading = useSelector(selectTasksLoading);
+  const activeList = useSelector(selectActiveLists);
 
   const filterItems = activeList
     ? items.filter((item) => item.list === activeList)
@@ -17,9 +20,10 @@ function TaskList({ onToggleChecked, onDeleteTask, onEditTask }) {
           <h2>Все задачи</h2>
         </div>
         <div className="tasks">
-          {items && isLoaded
+          {items && !loading
             ? filterItems.map((item) => (
                 <Task
+                  // eslint-disable-next-line no-underscore-dangle
                   key={item._id}
                   {...item}
                   onToggleChecked={onToggleChecked}

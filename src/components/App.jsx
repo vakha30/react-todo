@@ -1,16 +1,22 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { authAction } from "./redux/actions/user";
-import { fetchAllTasks } from "./redux/actions/tasks";
+import {
+  authAction,
+  selectCurrentUser,
+  selectIsAuth,
+} from "../redux/features/user";
+import { fetchAllTasks } from "../redux/features/tasks";
 
-import { Header, Sidebar, TasksContainer } from "./components";
+import { Header, Sidebar, TasksContainer } from ".";
+import { selectActiveLists } from "../redux/features/lists";
 
 function App() {
   const dispatch = useDispatch();
-  const { activeList } = useSelector(({ lists }) => lists);
+  const activeList = useSelector(selectActiveLists);
 
-  const { isAuth, currentUser } = useSelector(({ user }) => user);
+  const currentUser = useSelector(selectCurrentUser);
+  const isAuth = useSelector(selectIsAuth);
 
   useEffect(() => {
     dispatch(authAction());

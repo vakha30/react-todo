@@ -1,10 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Profile, Categories } from "./";
+import Profile from "./Profile.jsx";
+import Categories from "./Categories.jsx";
 
-import { fetchLists, addList } from "../../redux/actions/lists";
+import { fetchLists, addList, selectLists } from "../../redux/features/lists";
 
-import { Popup } from "../../components";
+import { Popup } from "..";
 
 function Sidebar({ currentUser }) {
   const [isOpenModal, setOpenModal] = React.useState(false);
@@ -17,7 +18,7 @@ function Sidebar({ currentUser }) {
     dispatch(fetchLists());
   }, [dispatch]);
 
-  const { items } = useSelector(({ lists }) => lists);
+  const items = useSelector(selectLists);
 
   const onOpenModal = () => {
     setOpenModal(true);
